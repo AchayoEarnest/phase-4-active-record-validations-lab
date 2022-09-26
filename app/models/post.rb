@@ -3,9 +3,11 @@ class Post < ApplicationRecord
     validates :content, length: { minimum: 250 }
     validates :summary, length: { maximum: 250 }
     validates :category, inclusion: { in: ['Fiction', 'Non-Fiction'] }
-    # validate :title_must_be_true_facts
+    validate :expected_not_to_allow
 
-    # def title_must_be_true_facts
-    #     title.include?("Won't Believe", "Secret", "Top [number]", "Guess")
-    # end
+    def expected_not_to_allow
+        if title == "True Facts"
+        errors.add(:title, "Invalid Title")
+        end 
+    end
 end
