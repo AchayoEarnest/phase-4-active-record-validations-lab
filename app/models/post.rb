@@ -6,6 +6,6 @@ class Post < ApplicationRecord
     # validate :title_must_be_true_facts
 
     # def title_must_be_true_facts
-    #     title.include?("Won't Believe", "Secret", "Top [number]", "Guess")
+    #     validate :title, must_be: ["Won't Believe", "Secret", "Top [number]", "Guess" ]
     # end
 end
